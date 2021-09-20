@@ -96,7 +96,7 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-Equations of motion for zonal and meridional winds:
+Equations of motion for zonal, meridional, and vertical winds:
 \end_layout
 
 \begin_layout Standard
@@ -104,7 +104,7 @@ Equations of motion for zonal and meridional winds:
 \[
 \partial_{t}u=-\nabla\cdot\begin{pmatrix}vu\\
 wu
-\end{pmatrix}+fv+\frac{uv\tan\phi}{a}+\partial_{z}\left(\nu\partial_{z}u\right)
+\end{pmatrix}+fv+\frac{uv\tan\varphi}{a}+\partial_{z}\left(\nu\partial_{z}u\right)
 \]
 
 \end_inset
@@ -117,7 +117,20 @@ wu
 \[
 \partial_{t}v=-\nabla\cdot\begin{pmatrix}vv\\
 wv
-\end{pmatrix}-fu-\frac{u^{2}\tan\phi}{a}-\frac{1}{a}\partial_{\phi}\Phi+\partial_{z}\left(\nu\partial_{z}v\right)
+\end{pmatrix}-fu-\frac{u^{2}\tan\varphi}{a}-\frac{1}{a}\partial_{\varphi}\Phi+\partial_{z}\left(\nu\partial_{z}v\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\partial_{t}w=-\nabla\cdot\begin{pmatrix}vw\\
+ww
+\end{pmatrix}-\partial_{z}\Phi+\frac{g\Theta}{\Theta_{0}}
 \]
 
 \end_inset
@@ -160,38 +173,23 @@ w
 \end_layout
 
 \begin_layout Standard
-Boussinesq/hydrostatic approximation:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\partial_{z}\Phi=\frac{g\Theta}{\Theta_{0}}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 where 
 \begin_inset Formula $u,v,w$
 \end_inset
 
  denote the zonally averaged winds in zonal, meridional, and vertical directions
 ; 
-\begin_inset Formula $z,\phi$
+\begin_inset Formula $z,\varphi$
 \end_inset
 
  denote the spherical coordinates; 
-\begin_inset Formula $\nabla=\begin{pmatrix}(a\cos\phi)^{-1}\partial_{\phi}(\cos\phi)\\
+\begin_inset Formula $\nabla=\begin{pmatrix}(a\cos\varphi)^{-1}\partial_{\varphi}(\cos\varphi)\\
 \partial_{z}
 \end{pmatrix}$
 \end_inset
 
  is the gradient operator in the meridional-vertical plane; 
-\begin_inset Formula $f=2\Omega\sin(\phi)$
+\begin_inset Formula $f=2\Omega\sin(\varphi)$
 \end_inset
 
  is the Coriolis parameter, 
@@ -199,7 +197,7 @@ where
 \end_inset
 
  is Earth's radius, 
-\begin_inset Formula $\Phi$
+\begin_inset Formula $\Phi=gz$
 \end_inset
 
  denotes the geopotential, 
@@ -215,7 +213,11 @@ where
 \begin_inset Formula $\Theta$
 \end_inset
 
- is the temperature field.
+ is the potential temperature field, 
+\begin_inset Formula $\tau$
+\end_inset
+
+ is a constant radiative damping time.
  Heating/cooling is implemented as a relaxation towards the equilibrium
  temperature field 
 \begin_inset Formula $\Theta_{E},$
@@ -224,7 +226,7 @@ where
  defined as:
 \begin_inset Formula 
 \[
-\frac{\Theta_{E}}{\Theta_{0}}=1-\frac{2}{3}\Delta_{H}P_{2}(\sin\phi)+\Delta_{v}\left(\frac{z}{H}-\frac{1}{2}\right)
+\frac{\Theta_{E}}{\Theta_{0}}=1-\frac{2}{3}\Delta_{H}P_{2}(\sin\varphi)+\Delta_{v}\left(\frac{z}{H}-\frac{1}{2}\right)
 \]
 
 \end_inset
@@ -409,7 +411,7 @@ By plugging the definition of
 \begin_layout Standard
 \begin_inset Formula 
 \[
-0=\frac{1}{a}\tan\phi\cdot v-\frac{1}{a}\partial_{\phi}v-\partial_{z}w
+0=\frac{1}{a}\tan\varphi\cdot v-\frac{1}{a}\partial_{\varphi}v-\partial_{z}w
 \]
 
 \end_inset
@@ -430,7 +432,7 @@ Doing the same for the equations of motion and the first law of thermodynamics,
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\partial_{t}u=-\frac{1}{a}v\partial_{\phi}u+fv+\frac{uv\tan\phi}{a}-w\partial_{z}u+\nu\partial_{z}^{2}u
+\partial_{t}u=-\frac{1}{a}v\partial_{\varphi}u+fv+\frac{uv\tan\varphi}{a}-w\partial_{z}u+\nu\partial_{z}^{2}u
 \]
 
 \end_inset
@@ -441,7 +443,7 @@ Doing the same for the equations of motion and the first law of thermodynamics,
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\partial_{t}v=-\frac{1}{a}v\partial_{\phi}v+fv-\frac{u^{2}\tan\phi}{a}-w\partial_{z}v-\frac{1}{a}\partial_{\phi}\Phi+\nu\partial_{z}^{2}v
+\partial_{t}v=-\frac{1}{a}v\partial_{\varphi}v+fv-\frac{u^{2}\tan\varphi}{a}-w\partial_{z}v-\frac{1}{a}\partial_{\varphi}\Phi+\nu\partial_{z}^{2}v
 \]
 
 \end_inset
@@ -452,7 +454,18 @@ Doing the same for the equations of motion and the first law of thermodynamics,
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\partial_{t}\Theta=-\frac{1}{a}v\partial_{\phi}\Theta-w\partial_{z}\Theta-(\Theta-\Theta_{E})\tau^{-1}+\nu\partial_{z}^{2}\Theta
+\partial_{t}w=-\frac{1}{a}v\partial_{\varphi}w-w\partial_{z}w-\partial_{z}\Phi+g\frac{\Theta}{\Theta_{0}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\partial_{t}\Theta=-\frac{1}{a}v\partial_{\varphi}\Theta-w\partial_{z}\Theta-(\Theta-\Theta_{E})\tau^{-1}+\nu\partial_{z}^{2}\Theta
 \]
 
 \end_inset
@@ -487,8 +500,8 @@ Equations of Motion:
 \begin_layout Standard
 \begin_inset Formula 
 \begin{multline*}
-\partial_{t}u_{j+\frac{1}{2}}^{k}=-\frac{1}{a}v_{j+\frac{1}{2}}^{k}\frac{u_{j+\frac{1}{2}}^{k}-u_{j-\frac{1}{2}}^{k}}{\Delta\phi_{j}}+f_{j}v_{j+\frac{1}{2}}^{k}+\frac{u_{j+\frac{1}{2}}^{k}v_{j+\frac{1}{2}}^{k}\tan\phi_{j}}{a}\\
--w_{j+\frac{1}{2}}^{k}\frac{u_{j+\frac{1}{2}}^{k+2}-u_{j+\frac{1}{2}}^{k}}{\Delta z_{k}}+\nu\frac{u_{j+\frac{1}{2}}^{k+2}-2u_{j+\frac{1}{2}}^{k}+u_{j+\frac{1}{2}}^{k-2}}{4\Delta z_{k}^{2}}
+\partial_{t}u_{j+\frac{1}{2}}^{k}=-\frac{1}{a}v_{j+\frac{1}{2}}^{k}\frac{u_{j+\frac{3}{2}}^{k}-u_{j-\frac{1}{2}}^{k}}{\Delta\varphi_{j}}+f_{j}v_{j+\frac{1}{2}}^{k}+\frac{u_{j+\frac{1}{2}}^{k}v_{j+\frac{1}{2}}^{k}\tan\varphi_{j}}{a}\\
+-w_{j+\frac{1}{2}}^{k}\frac{u_{j+\frac{1}{2}}^{k+1}-u_{j+\frac{1}{2}}^{k-1}}{\Delta z_{k}}+\nu\frac{u_{j+\frac{1}{2}}^{k+1}-2u_{j+\frac{1}{2}}^{k}+u_{j+\frac{1}{2}}^{k-1}}{4\Delta z_{k}^{2}}
 \end{multline*}
 
 \end_inset
@@ -499,8 +512,8 @@ Equations of Motion:
 \begin_layout Standard
 \begin_inset Formula 
 \begin{multline*}
-\partial_{t}v_{j+\frac{1}{2}}^{k}=-\frac{1}{a}v_{j+\frac{1}{2}}^{k}\frac{v_{j+\frac{1}{2}}^{k}-v_{j-\frac{1}{2}}^{k}}{\Delta\phi_{j}}+f_{j}v_{j+\frac{1}{2}}^{k}-\frac{\left(u_{j+\frac{1}{2}}^{k}\right)^{2}\tan\phi_{j}}{a}-w_{j+\frac{1}{2}}^{k}\frac{v_{j+\frac{1}{2}}^{k+1}-v_{j+\frac{1}{2}}^{k-1}}{\Delta z_{k}}\\
--\frac{1}{a}\frac{\Phi_{j}^{k}-\Phi_{j-1}^{k}}{\Delta\phi_{j}}+\nu\frac{v_{j+\frac{1}{2}}^{k+2}-2v_{j+\frac{1}{2}}^{k}+v_{j+\frac{1}{2}}^{k-2}}{4\Delta z_{k}^{2}}
+\partial_{t}v_{j+\frac{1}{2}}^{k}=-\frac{1}{a}v_{j+\frac{1}{2}}^{k}\frac{v_{j+\frac{3}{2}}^{k}-v_{j-\frac{1}{2}}^{k}}{\Delta\varphi_{j}}+f_{j}v_{j+\frac{1}{2}}^{k}-\frac{\left(u_{j+\frac{1}{2}}^{k}\right)^{2}\tan\varphi_{j}}{a}-w_{j+\frac{1}{2}}^{k}\frac{v_{j+\frac{3}{2}}^{k+1}-v_{j-\frac{1}{2}}^{k-1}}{\Delta z_{k}}\\
+-\frac{1}{a}\frac{\Phi_{j+1}^{k}-\Phi_{j-1}^{k}}{\Delta\varphi_{j}}+\nu\frac{v_{j+\frac{1}{2}}^{k+1}-2v_{j+\frac{1}{2}}^{k}+v_{j+\frac{1}{2}}^{k-1}}{4\Delta z_{k}^{2}}
 \end{multline*}
 
 \end_inset
@@ -515,7 +528,7 @@ First law of thermodynamics
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\partial_{t}\Theta_{j}^{k}=-\frac{1}{a}v_{j+\frac{1}{2}}^{k}\frac{\Theta_{j}^{k}-\Theta_{j-1}^{k}}{\Delta\phi_{j}}-w_{j+\frac{1}{2}}^{k}\frac{\Theta_{j}^{k+1}-\Theta_{j}^{k-1}}{\Delta z_{k}}-(\Theta_{j}^{k}-\Theta_{E})\tau^{-1}+\nu\frac{\Theta_{j}^{k+2}-2\Theta_{j}^{k}+\Theta_{j}^{k-2}}{\Delta z_{k}^{2}}
+\partial_{t}\Theta_{j}^{k}=-\frac{1}{a}v_{j+\frac{1}{2}}^{k}\frac{\Theta_{j+1}^{k}-\Theta_{j-1}^{k}}{\Delta\varphi_{j}}-w_{j+\frac{1}{2}}^{k}\frac{\Theta_{j}^{k+1}-\Theta_{j}^{k-1}}{\Delta z_{k}}-(\Theta_{j}^{k}-\Theta_{E})\tau^{-1}+\nu\frac{\Theta_{j}^{k+1}-2\Theta_{j}^{k}+\Theta_{j}^{k-1}}{\Delta z_{k}^{2}}
 \]
 
 \end_inset
@@ -524,13 +537,13 @@ First law of thermodynamics
 \end_layout
 
 \begin_layout Standard
-Boussinesq approximation:
+Vertical winds:
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\frac{\Phi_{j}^{k+2}-\Phi_{j-1}^{k}}{\Delta z_{k}}=\frac{g\Theta_{j}^{k}}{\Theta_{0}}
+\partial_{t}w_{j+\frac{1}{2}}^{k}=-\frac{1}{a}v_{j}^{k}\frac{w_{j+\frac{3}{2}}^{k}-w_{j-\frac{1}{2}}^{k}}{\Delta\varphi_{j}}-w_{j+\frac{1}{2}}^{k}\frac{w_{j+\frac{1}{2}}^{k+1}-w_{j+\frac{1}{2}}^{k-1}}{\Delta z_{k}}-\frac{\Phi_{j}^{k+1}-\Phi_{j}^{k-1}}{\Delta z_{k}}+\frac{g\Theta_{j}^{k}}{\Theta_{0}}
 \]
 
 \end_inset
@@ -542,7 +555,7 @@ Boussinesq approximation:
 where 
 \begin_inset Formula 
 \[
-f_{j}=2\Omega\sin(\phi_{j})
+f_{j}=2\Omega\sin(\varphi_{j})
 \]
 
 \end_inset
@@ -605,18 +618,6 @@ literal "false"
 \end_inset
 
  latitude and 9 vertical levels.
-\end_layout
-
-\begin_layout Standard
-Boussinesq = nearly incompressible
-\end_layout
-
-\begin_layout Standard
-pressure gradient force in x vanishes due to zonal average
-\end_layout
-
-\begin_layout Standard
-hydrostatic approximation
 \end_layout
 
 \begin_layout Standard
