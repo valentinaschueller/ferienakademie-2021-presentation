@@ -50,7 +50,7 @@ H = 8000.
 z1 = 0
 z2 = 5e3
 
-theta_0 = 10.
+theta_0 = -10.
 
 phi = np.linspace(-0.5*np.pi,0.5*np.pi)
 sinphi = np.sin(phi)
