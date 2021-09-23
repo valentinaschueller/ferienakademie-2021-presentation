@@ -500,8 +500,8 @@ Equations of Motion:
 \begin_layout Standard
 \begin_inset Formula 
 \begin{multline*}
-\partial_{t}u_{j+\frac{1}{2}}^{k}=-\frac{1}{a}v_{j+\frac{1}{2}}^{k}\frac{u_{j+\frac{3}{2}}^{k}-u_{j-\frac{1}{2}}^{k}}{\Delta\varphi_{j}}+f_{j}v_{j+\frac{1}{2}}^{k}+\frac{u_{j+\frac{1}{2}}^{k}v_{j+\frac{1}{2}}^{k}\tan\varphi_{j}}{a}\\
--w_{j+\frac{1}{2}}^{k}\frac{u_{j+\frac{1}{2}}^{k+1}-u_{j+\frac{1}{2}}^{k-1}}{\Delta z_{k}}+\nu\frac{u_{j+\frac{1}{2}}^{k+1}-2u_{j+\frac{1}{2}}^{k}+u_{j+\frac{1}{2}}^{k-1}}{4\Delta z_{k}^{2}}
+\partial_{t}u_{j+\frac{1}{2}}^{k}=-\frac{1}{a}v_{j+\frac{1}{2}}^{k}\frac{u_{j+\frac{3}{2}}^{k}-u_{j-\frac{1}{2}}^{k}}{2\Delta\varphi_{j}}+f_{j}v_{j+\frac{1}{2}}^{k}+\frac{u_{j+\frac{1}{2}}^{k}v_{j+\frac{1}{2}}^{k}\tan\varphi_{j}}{a}\\
+-w_{j+\frac{1}{2}}^{k}\frac{u_{j+\frac{1}{2}}^{k+1}-u_{j+\frac{1}{2}}^{k-1}}{2\Delta z_{k}}+\nu\frac{u_{j+\frac{1}{2}}^{k+1}-2u_{j+\frac{1}{2}}^{k}+u_{j+\frac{1}{2}}^{k-1}}{4\Delta z_{k}^{2}}
 \end{multline*}
 
 \end_inset
@@ -512,8 +512,8 @@ Equations of Motion:
 \begin_layout Standard
 \begin_inset Formula 
 \begin{multline*}
-\partial_{t}v_{j+\frac{1}{2}}^{k}=-\frac{1}{a}v_{j+\frac{1}{2}}^{k}\frac{v_{j+\frac{3}{2}}^{k}-v_{j-\frac{1}{2}}^{k}}{\Delta\varphi_{j}}+f_{j}v_{j+\frac{1}{2}}^{k}-\frac{\left(u_{j+\frac{1}{2}}^{k}\right)^{2}\tan\varphi_{j}}{a}-w_{j+\frac{1}{2}}^{k}\frac{v_{j+\frac{3}{2}}^{k+1}-v_{j-\frac{1}{2}}^{k-1}}{\Delta z_{k}}\\
--\frac{1}{a}\frac{\Phi_{j+1}^{k}-\Phi_{j-1}^{k}}{\Delta\varphi_{j}}+\nu\frac{v_{j+\frac{1}{2}}^{k+1}-2v_{j+\frac{1}{2}}^{k}+v_{j+\frac{1}{2}}^{k-1}}{4\Delta z_{k}^{2}}
+\partial_{t}v_{j+\frac{1}{2}}^{k}=-\frac{1}{a}v_{j+\frac{1}{2}}^{k}\frac{v_{j+\frac{3}{2}}^{k}-v_{j-\frac{1}{2}}^{k}}{2\Delta\varphi_{j}}+f_{j}v_{j+\frac{1}{2}}^{k}-\frac{\left(u_{j+\frac{1}{2}}^{k}\right)^{2}\tan\varphi_{j}}{a}-w_{j+\frac{1}{2}}^{k}\frac{v_{j+\frac{3}{2}}^{k+1}-v_{j-\frac{1}{2}}^{k-1}}{2\Delta z_{k}}\\
+-\frac{1}{a}\frac{\Phi_{j+1}^{k}-\Phi_{j-1}^{k}}{2\Delta\varphi_{j}}+\nu\frac{v_{j+\frac{1}{2}}^{k+1}-2v_{j+\frac{1}{2}}^{k}+v_{j+\frac{1}{2}}^{k-1}}{4\Delta z_{k}^{2}}
 \end{multline*}
 
 \end_inset
@@ -528,7 +528,7 @@ First law of thermodynamics
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\partial_{t}\Theta_{j}^{k}=-\frac{1}{a}v_{j+\frac{1}{2}}^{k}\frac{\Theta_{j+1}^{k}-\Theta_{j-1}^{k}}{\Delta\varphi_{j}}-w_{j+\frac{1}{2}}^{k}\frac{\Theta_{j}^{k+1}-\Theta_{j}^{k-1}}{\Delta z_{k}}-(\Theta_{j}^{k}-\Theta_{E})\tau^{-1}+\nu\frac{\Theta_{j}^{k+1}-2\Theta_{j}^{k}+\Theta_{j}^{k-1}}{\Delta z_{k}^{2}}
+\partial_{t}\Theta_{j}^{k}=-\frac{1}{a}v_{j+\frac{1}{2}}^{k}\frac{\Theta_{j+1}^{k}-\Theta_{j-1}^{k}}{2\Delta\varphi_{j}}-w_{j+\frac{1}{2}}^{k}\frac{\Theta_{j}^{k+1}-\Theta_{j}^{k-1}}{2\Delta z_{k}}-(\Theta_{j}^{k}-\Theta_{E})\tau^{-1}+\nu\frac{\Theta_{j}^{k+1}-2\Theta_{j}^{k}+\Theta_{j}^{k-1}}{4\Delta z_{k}^{2}}
 \]
 
 \end_inset
@@ -543,7 +543,7 @@ Vertical winds:
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\partial_{t}w_{j+\frac{1}{2}}^{k}=-\frac{1}{a}v_{j}^{k}\frac{w_{j+\frac{3}{2}}^{k}-w_{j-\frac{1}{2}}^{k}}{\Delta\varphi_{j}}-w_{j+\frac{1}{2}}^{k}\frac{w_{j+\frac{1}{2}}^{k+1}-w_{j+\frac{1}{2}}^{k-1}}{\Delta z_{k}}-\frac{\Phi_{j}^{k+1}-\Phi_{j}^{k-1}}{\Delta z_{k}}+\frac{g\Theta_{j}^{k}}{\Theta_{0}}
+\partial_{t}w_{j+\frac{1}{2}}^{k}=-\frac{1}{a}v_{j}^{k}\frac{w_{j+\frac{3}{2}}^{k}-w_{j-\frac{1}{2}}^{k}}{2\Delta\varphi_{j}}-w_{j+\frac{1}{2}}^{k}\frac{w_{j+\frac{1}{2}}^{k+1}-w_{j+\frac{1}{2}}^{k-1}}{2\Delta z_{k}}-\frac{\Phi_{j}^{k+1}-\Phi_{j}^{k-1}}{2\Delta z_{k}}+\frac{g\Theta_{j}^{k}}{\Theta_{0}}
 \]
 
 \end_inset
@@ -618,6 +618,54 @@ literal "false"
 \end_inset
 
  latitude and 9 vertical levels.
+\end_layout
+
+\begin_layout Section
+Reformulation
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{multline*}
+\frac{u_{k,j+\frac{1}{2}}^{n+1}-u_{k,j+\frac{1}{2}}^{n}}{\Delta t}=-\frac{1}{a}v_{k,j+\frac{1}{2}}^{n}\frac{u_{k,j+\frac{3}{2}}^{n}-u_{k,j-\frac{1}{2}}^{n}}{2\Delta\varphi_{j}}+f_{j+\frac{1}{2}}v_{k,j+\frac{1}{2}}^{n}+\frac{u_{k,j+\frac{1}{2}}^{n}v_{k,j+\frac{1}{2}}^{n}\tan\varphi_{j+\frac{1}{2}}}{a}\\
+-w_{k,j+\frac{1}{2}}^{n}\frac{u_{k+1,j+\frac{1}{2}}^{n}-u_{k-1,j+\frac{1}{2}}^{n}}{2\Delta z_{k}}+\nu\frac{u_{k+1,j+\frac{1}{2}}^{n}-2u_{k,j+\frac{1}{2}}^{n}+u_{k-1,j+\frac{1}{2}}^{n}}{4\Delta z_{k}^{2}}
+\end{multline*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{multline*}
+\frac{v_{k,j+\frac{1}{2}}^{n+1}-v_{k,j+\frac{1}{2}}^{n}}{\Delta t}=-\frac{1}{a}v_{k,j+\frac{1}{2}}^{n}\frac{v_{k,j+\frac{3}{2}}^{n}-v_{k,j-\frac{1}{2}}^{n}}{2\Delta\varphi_{j}}+f_{j+\frac{1}{2}}v_{k,j+\frac{1}{2}}^{n}-\frac{\left(u_{k,j+\frac{1}{2}}^{n}\right)^{2}\tan\varphi_{j+\frac{1}{2}}}{a}\\
+-w_{k,j+\frac{1}{2}}^{n}\frac{v_{k+1,j+\frac{3}{2}}^{n}-v_{k-1,j-\frac{1}{2}}^{n}}{2\Delta z_{k}}-\frac{1}{a}\frac{\Phi_{k,j+1}^{n}-\Phi_{k,j-1}^{n}}{2\Delta\varphi_{j}}+\nu\frac{v_{k+1,j+\frac{1}{2}}^{n}-2v_{k,j+\frac{1}{2}}^{n}+v_{k-1,j+\frac{1}{2}}^{n}}{4\Delta z_{k}^{2}}\\
+\end{multline*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{multline*}
+\frac{w_{k,j+\frac{1}{2}}^{n+1}-w_{k,j+\frac{1}{2}}^{n}}{\Delta t}=-\frac{1}{a}v_{k,j}^{n}\frac{w_{k,j+\frac{3}{2}}^{n}-w_{k,j-\frac{1}{2}}^{n}}{2\Delta\varphi_{j}}-w_{k,j+\frac{1}{2}}^{n}\frac{w_{k+1,j+\frac{1}{2}}^{n}-w_{k-1,j+\frac{1}{2}}^{n}}{2\Delta z_{k}}-\frac{\Phi_{k+1,j}-\Phi_{k-1,j}}{2\Delta z_{k}}+\frac{g\Theta_{k,j}^{n}}{\Theta_{0}}
+\end{multline*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{multline*}
+\frac{\Theta_{k,j+\frac{1}{2}}^{n+1}-\Theta_{k,j+\frac{1}{2}}^{n}}{\Delta t}=-\frac{1}{a}v_{k,j+\frac{1}{2}}^{n}\frac{\Theta_{k,j+1}^{n}-\Theta_{k,j-1}^{n}}{2\Delta\varphi_{j}}-w_{k,j+\frac{1}{2}}^{n}\frac{\Theta_{k+1,j}^{n}-\Theta_{k-1,j}^{n}}{2\Delta z_{k}}\\
+-(\Theta_{k,j}^{n}-\Theta_{E})\tau^{-1}+\nu\frac{\Theta_{k+1,j}^{n}-2\Theta_{k,j}^{n}+\Theta_{k-1,j}^{n}}{4\Delta z_{k}^{2}}
+\end{multline*}
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
