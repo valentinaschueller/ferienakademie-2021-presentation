@@ -443,7 +443,7 @@ Doing the same for the equations of motion and the first law of thermodynamics,
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\partial_{t}v=-\frac{1}{a}v\partial_{\varphi}v+fv-\frac{u^{2}\tan\varphi}{a}-w\partial_{z}v-\frac{1}{a}\partial_{\varphi}\Phi+\nu\partial_{z}^{2}v
+\partial_{t}v=-\frac{1}{a}v\partial_{\varphi}v-fu-\frac{u^{2}\tan\varphi}{a}-w\partial_{z}v-\frac{1}{a}\partial_{\varphi}\Phi+\nu\partial_{z}^{2}v
 \]
 
 \end_inset
@@ -512,7 +512,7 @@ Equations of Motion:
 \begin_layout Standard
 \begin_inset Formula 
 \begin{multline*}
-\partial_{t}v_{j+\frac{1}{2}}^{k}=-\frac{1}{a}v_{j+\frac{1}{2}}^{k}\frac{v_{j+\frac{3}{2}}^{k}-v_{j-\frac{1}{2}}^{k}}{2\Delta\varphi_{j}}+f_{j}v_{j+\frac{1}{2}}^{k}-\frac{\left(u_{j+\frac{1}{2}}^{k}\right)^{2}\tan\varphi_{j}}{a}-w_{j+\frac{1}{2}}^{k}\frac{v_{j+\frac{3}{2}}^{k+1}-v_{j-\frac{1}{2}}^{k-1}}{2\Delta z_{k}}\\
+\partial_{t}v_{j+\frac{1}{2}}^{k}=-\frac{1}{a}v_{j+\frac{1}{2}}^{k}\frac{v_{j+\frac{3}{2}}^{k}-v_{j-\frac{1}{2}}^{k}}{2\Delta\varphi_{j}}-f_{j}u_{j+\frac{1}{2}}^{k}-\frac{\left(u_{j+\frac{1}{2}}^{k}\right)^{2}\tan\varphi_{j}}{a}-w_{j+\frac{1}{2}}^{k}\frac{v_{j+\frac{3}{2}}^{k+1}-v_{j-\frac{1}{2}}^{k-1}}{2\Delta z_{k}}\\
 -\frac{1}{a}\frac{\Phi_{j+1}^{k}-\Phi_{j-1}^{k}}{2\Delta\varphi_{j}}+\nu\frac{v_{j+\frac{1}{2}}^{k+1}-2v_{j+\frac{1}{2}}^{k}+v_{j+\frac{1}{2}}^{k-1}}{4\Delta z_{k}^{2}}
 \end{multline*}
 
@@ -627,8 +627,8 @@ Reformulation
 \begin_layout Standard
 \begin_inset Formula 
 \begin{multline*}
-\frac{u_{k,j+\frac{1}{2}}^{n+1}-u_{k,j+\frac{1}{2}}^{n}}{\Delta t}=-\frac{1}{a}v_{k,j+\frac{1}{2}}^{n}\frac{u_{k,j+\frac{3}{2}}^{n}-u_{k,j-\frac{1}{2}}^{n}}{2\Delta\varphi_{j}}+f_{j+\frac{1}{2}}v_{k,j+\frac{1}{2}}^{n}+\frac{u_{k,j+\frac{1}{2}}^{n}v_{k,j+\frac{1}{2}}^{n}\tan\varphi_{j+\frac{1}{2}}}{a}\\
--w_{k,j+\frac{1}{2}}^{n}\frac{u_{k+1,j+\frac{1}{2}}^{n}-u_{k-1,j+\frac{1}{2}}^{n}}{2\Delta z_{k}}+\nu\frac{u_{k+1,j+\frac{1}{2}}^{n}-2u_{k,j+\frac{1}{2}}^{n}+u_{k-1,j+\frac{1}{2}}^{n}}{4\Delta z_{k}^{2}}
+\frac{u_{k,j+\frac{1}{2}}^{n+1}-u_{k,j+\frac{1}{2}}^{n}}{\Delta t}=-\frac{1}{a}v_{k,j+\frac{1}{2}}^{n}\frac{u_{k,j+\frac{3}{2}}^{n}-u_{k,j-\frac{1}{2}}^{n}}{2\Delta\varphi}+f_{j+\frac{1}{2}}v_{k,j+\frac{1}{2}}^{n}+\frac{u_{k,j+\frac{1}{2}}^{n}v_{k,j+\frac{1}{2}}^{n}\tan\varphi_{j+\frac{1}{2}}}{a}\\
+-w_{k,j+\frac{1}{2}}^{n}\frac{u_{k+1,j+\frac{1}{2}}^{n}-u_{k-1,j+\frac{1}{2}}^{n}}{2\Delta z}+\nu\frac{u_{k+1,j+\frac{1}{2}}^{n}-2u_{k,j+\frac{1}{2}}^{n}+u_{k-1,j+\frac{1}{2}}^{n}}{4\Delta z^{2}}
 \end{multline*}
 
 \end_inset
@@ -636,19 +636,8 @@ Reformulation
 
 \begin_inset Formula 
 \begin{multline*}
-\frac{v_{k,j+\frac{1}{2}}^{n+1}-v_{k,j+\frac{1}{2}}^{n}}{\Delta t}=-\frac{1}{a}v_{k,j+\frac{1}{2}}^{n}\frac{v_{k,j+\frac{3}{2}}^{n}-v_{k,j-\frac{1}{2}}^{n}}{2\Delta\varphi_{j}}+f_{j+\frac{1}{2}}v_{k,j+\frac{1}{2}}^{n}-\frac{\left(u_{k,j+\frac{1}{2}}^{n}\right)^{2}\tan\varphi_{j+\frac{1}{2}}}{a}\\
--w_{k,j+\frac{1}{2}}^{n}\frac{v_{k+1,j+\frac{3}{2}}^{n}-v_{k-1,j-\frac{1}{2}}^{n}}{2\Delta z_{k}}-\frac{1}{a}\frac{\Phi_{k,j+1}^{n}-\Phi_{k,j-1}^{n}}{2\Delta\varphi_{j}}+\nu\frac{v_{k+1,j+\frac{1}{2}}^{n}-2v_{k,j+\frac{1}{2}}^{n}+v_{k-1,j+\frac{1}{2}}^{n}}{4\Delta z_{k}^{2}}\\
-\end{multline*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{multline*}
-\frac{w_{k,j+\frac{1}{2}}^{n+1}-w_{k,j+\frac{1}{2}}^{n}}{\Delta t}=-\frac{1}{a}v_{k,j}^{n}\frac{w_{k,j+\frac{3}{2}}^{n}-w_{k,j-\frac{1}{2}}^{n}}{2\Delta\varphi_{j}}-w_{k,j+\frac{1}{2}}^{n}\frac{w_{k+1,j+\frac{1}{2}}^{n}-w_{k-1,j+\frac{1}{2}}^{n}}{2\Delta z_{k}}-\frac{\Phi_{k+1,j}-\Phi_{k-1,j}}{2\Delta z_{k}}+\frac{g\Theta_{k,j}^{n}}{\Theta_{0}}
+\frac{v_{k,j+\frac{1}{2}}^{n+1}-v_{k,j+\frac{1}{2}}^{n}}{\Delta t}=-\frac{1}{a}v_{k,j+\frac{1}{2}}^{n}\frac{v_{k,j+\frac{3}{2}}^{n}-v_{k,j-\frac{1}{2}}^{n}}{2\Delta\varphi}-f_{j+\frac{1}{2}}u_{k,j+\frac{1}{2}}^{n}-\frac{\left(u_{k,j+\frac{1}{2}}^{n}\right)^{2}\tan\varphi_{j+\frac{1}{2}}}{a}\\
+-w_{k,j+\frac{1}{2}}^{n}\frac{v_{k+1,j+\frac{3}{2}}^{n}-v_{k-1,j-\frac{1}{2}}^{n}}{2\Delta z}-\frac{1}{a}\frac{\Phi_{k,j+1}^{n}-\Phi_{k,j-1}^{n}}{2\Delta\varphi}+\nu\frac{v_{k+1,j+\frac{1}{2}}^{n}-2v_{k,j+\frac{1}{2}}^{n}+v_{k-1,j+\frac{1}{2}}^{n}}{4\Delta z^{2}}\\
 \end{multline*}
 
 \end_inset
@@ -659,8 +648,19 @@ Reformulation
 \begin_layout Standard
 \begin_inset Formula 
 \begin{multline*}
-\frac{\Theta_{k,j+\frac{1}{2}}^{n+1}-\Theta_{k,j+\frac{1}{2}}^{n}}{\Delta t}=-\frac{1}{a}v_{k,j+\frac{1}{2}}^{n}\frac{\Theta_{k,j+1}^{n}-\Theta_{k,j-1}^{n}}{2\Delta\varphi_{j}}-w_{k,j+\frac{1}{2}}^{n}\frac{\Theta_{k+1,j}^{n}-\Theta_{k-1,j}^{n}}{2\Delta z_{k}}\\
--(\Theta_{k,j}^{n}-\Theta_{E})\tau^{-1}+\nu\frac{\Theta_{k+1,j}^{n}-2\Theta_{k,j}^{n}+\Theta_{k-1,j}^{n}}{4\Delta z_{k}^{2}}
+\frac{w_{k,j+\frac{1}{2}}^{n+1}-w_{k,j+\frac{1}{2}}^{n}}{\Delta t}=-\frac{1}{a}v_{k,j}^{n}\frac{w_{k,j+\frac{3}{2}}^{n}-w_{k,j-\frac{1}{2}}^{n}}{2\Delta\varphi}-w_{k,j+\frac{1}{2}}^{n}\frac{w_{k+1,j+\frac{1}{2}}^{n}-w_{k-1,j+\frac{1}{2}}^{n}}{2\Delta z}-\frac{\Phi_{k+1,j}-\Phi_{k-1,j}}{2\Delta z}+\frac{g\Theta_{k,j}^{n}}{\Theta_{0}}
+\end{multline*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{multline*}
+\frac{\Theta_{k,j+\frac{1}{2}}^{n+1}-\Theta_{k,j+\frac{1}{2}}^{n}}{\Delta t}=-\frac{1}{a}v_{k,j+\frac{1}{2}}^{n}\frac{\Theta_{k,j+1}^{n}-\Theta_{k,j-1}^{n}}{2\Delta\varphi}-w_{k,j+\frac{1}{2}}^{n}\frac{\Theta_{k+1,j}^{n}-\Theta_{k-1,j}^{n}}{2\Delta z}\\
+-(\Theta_{k,j}^{n}-\Theta_{E})\tau^{-1}+\nu\frac{\Theta_{k+1,j}^{n}-2\Theta_{k,j}^{n}+\Theta_{k-1,j}^{n}}{4\Delta z^{2}}
 \end{multline*}
 
 \end_inset
