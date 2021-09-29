@@ -95,14 +95,18 @@ literal "false"
 
 \end_layout
 
-\begin_layout Standard
-Equations of motion for zonal, meridional, and vertical winds:
+\begin_layout Subsection
+Stationary Case
+\end_layout
+
+\begin_layout Subsubsection*
+Equations of motion for zonal, meridional, and vertical winds
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\partial_{t}u=-\nabla\cdot\begin{pmatrix}vu\\
+0=-\nabla\cdot\begin{pmatrix}vu\\
 wu
 \end{pmatrix}+fv+\frac{uv\tan\varphi}{a}+\partial_{z}\left(\nu\partial_{z}u\right)
 \]
@@ -115,7 +119,7 @@ wu
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\partial_{t}v=-\nabla\cdot\begin{pmatrix}vv\\
+0=-\nabla\cdot\begin{pmatrix}vv\\
 wv
 \end{pmatrix}-fu-\frac{u^{2}\tan\varphi}{a}-\frac{1}{a}\partial_{\varphi}\Phi+\partial_{z}\left(\nu\partial_{z}v\right)
 \]
@@ -128,9 +132,7 @@ wv
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\partial_{t}w=-\nabla\cdot\begin{pmatrix}vw\\
-ww
-\end{pmatrix}-\partial_{z}\Phi+\frac{g\Theta}{\Theta_{0}}
+0=-\partial_{z}\Phi+\frac{g\Theta}{\Theta_{0}}
 \]
 
 \end_inset
@@ -138,14 +140,14 @@ ww
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Subsubsection*
 First law of thermodynamics
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\partial_{t}\Theta=-\nabla\cdot\begin{pmatrix}v\Theta\\
+0=-\nabla\cdot\begin{pmatrix}v\Theta\\
 w\Theta
 \end{pmatrix}-(\Theta-\Theta_{E})\tau^{-1}+\partial_{z}\left(\nu\partial_{z}\Theta\right)
 \]
@@ -155,8 +157,8 @@ w\Theta
 
 \end_layout
 
-\begin_layout Standard
-Continuity equation:
+\begin_layout Subsubsection*
+Continuity equation
 \end_layout
 
 \begin_layout Standard
@@ -197,10 +199,14 @@ where
 \end_inset
 
  is Earth's radius, 
-\begin_inset Formula $\Phi=gz$
+\begin_inset Formula $\Phi=gz+\delta$
 \end_inset
 
- denotes the geopotential, 
+ denotes the geopotential with a pressure variation term 
+\begin_inset Formula $\delta$
+\end_inset
+
+, 
 \begin_inset Formula $\nu$
 \end_inset
 
@@ -247,7 +253,11 @@ where
 \end_inset
 
  is a nondimensional parameter representing the fractional change in potential
- temperature from equator to pole in radiative equilibrium; 
+ temperature from equator to pole in 
+\emph on
+radiative
+\emph default
+ equilibrium; 
 \begin_inset Formula $\Delta_{v}$
 \end_inset
 
@@ -257,6 +267,105 @@ where
 \end_inset
 
  is the second Legendre polynomial.
+\end_layout
+
+\begin_layout Subsection
+Time-Dependent Equations
+\end_layout
+
+\begin_layout Standard
+For the numerical solution, 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "held_nonlinear_1980"
+literal "false"
+
+\end_inset
+
+ use the 
+\begin_inset Quotes eld
+\end_inset
+
+time-dependendent version
+\begin_inset Quotes erd
+\end_inset
+
+ of these equations, i.e.:
+\end_layout
+
+\begin_layout Subsubsection*
+Equations of motion for zonal, meridional, and vertical winds
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\partial_{t}u=-\nabla\cdot\begin{pmatrix}vu\\
+wu
+\end{pmatrix}+fv+\frac{uv\tan\varphi}{a}+\partial_{z}\left(\nu\partial_{z}u\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\partial_{t}v=-\nabla\cdot\begin{pmatrix}vv\\
+wv
+\end{pmatrix}-fu-\frac{u^{2}\tan\varphi}{a}-\frac{1}{a}\partial_{\varphi}\Phi+\partial_{z}\left(\nu\partial_{z}v\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\partial_{t}w=-\partial_{z}\Phi+\frac{g\Theta}{\Theta_{0}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+First law of Thermodynamics
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\partial_{t}\Theta=-\nabla\cdot\begin{pmatrix}v\Theta\\
+w\Theta
+\end{pmatrix}-(\Theta-\Theta_{E})\tau^{-1}+\partial_{z}\left(\nu\partial_{z}\Theta\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Continuity equation
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+0=-\nabla\cdot\begin{pmatrix}v\\
+w
+\end{pmatrix}
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -311,14 +420,14 @@ at
 \end_layout
 
 \begin_layout Itemize
-\begin_inset Formula $v\partial_{z}u=Cu$
+\begin_inset Formula $\nu\partial_{z}u=Cu$
 \end_inset
 
 
 \end_layout
 
 \begin_layout Itemize
-\begin_inset Formula $v\partial_{z}v=Cv$
+\begin_inset Formula $\nu\partial_{z}v=Cv$
 \end_inset
 
 ; 
@@ -329,6 +438,38 @@ at
 \end_layout
 
 \end_deeper
+\begin_layout Itemize
+at 
+\begin_inset Formula $\text{\ensuremath{\varphi=-\frac{\pi}{2},\varphi=\frac{\pi}{2}}:}$
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $u=v=w=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\Theta=\Theta_{eq}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+von Neumann boundary conditions for 
+\begin_inset Formula $\delta$
+\end_inset
+
+ on all boundaries
+\end_layout
+
 \begin_layout Subsection
 Model Parameters
 \end_layout
@@ -473,8 +614,326 @@ Doing the same for the equations of motion and the first law of thermodynamics,
 
 \end_layout
 
+\begin_layout Standard
+Inserting our definition 
+\begin_inset Formula $\Phi\coloneqq gz+\delta$
+\end_inset
+
+, the equations for 
+\begin_inset Formula $v$
+\end_inset
+
+ and 
+\begin_inset Formula $w$
+\end_inset
+
+ further simplify to:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\partial_{t}v=-\frac{1}{a}v\partial_{\varphi}v-fu-\frac{u^{2}\tan\varphi}{a}-w\partial_{z}v-\frac{1}{a}\partial_{\varphi}\delta+\nu\partial_{z}^{2}v
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\partial_{t}w=-\frac{1}{a}v\partial_{\varphi}w-w\partial_{z}w-\partial_{z}\delta+g\left(\frac{\Theta}{\Theta_{0}}-1\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Discretizing the Equations
+\end_layout
+
+\begin_layout Standard
+We start off by treating our velocity and temperature derivatives explicitly
+ in time:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+u^{n+1}=u^{n}+\Delta t\left(-\frac{1}{a}v\partial_{\varphi}u-w\partial_{z}u+fv+\frac{uv\tan\varphi}{a}+\nu\partial_{z}^{2}u\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+v^{n+1}=v^{n}+\Delta t\left(-\frac{1}{a}v\partial_{\varphi}v-fu-\frac{u^{2}\tan\varphi}{a}-w\partial_{z}v-\frac{1}{a}\partial_{\varphi}\delta+\nu\partial_{z}^{2}v\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+w^{n\text{+1}}=w^{n}+\Delta t\left(-\frac{1}{a}v\partial_{\varphi}w-w\partial_{z}w-\partial_{z}\delta+g\left(\frac{\Theta}{\Theta_{0}}-1\right)\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Theta^{n+1}=\Theta^{n}+\Delta t\left(-\frac{1}{a}v\partial_{\varphi}\Theta-w\partial_{z}\Theta-(\Theta-\Theta_{E})\tau^{-1}+\nu\partial_{z}^{2}\Theta\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Then we use the helpful descriptions in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "griebel_numerical_1998"
+literal "false"
+
+\end_inset
+
+ and abbreviate:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+F\coloneqq v^{n}+\Delta t\left(-\frac{1}{a}v\partial_{\varphi}v-fu-\frac{u^{2}\tan\varphi}{a}-w\partial_{z}v+\nu\partial_{z}^{2}v\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+G\coloneqq w^{n}+\Delta t\left(-\frac{1}{a}v\partial_{\varphi}w-w\partial_{z}w+g\left(\frac{\Theta}{\Theta_{0}}-1\right)\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+to obtain:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+u^{n+1}=u^{n}+\Delta t\left(-\frac{1}{a}v\partial_{\varphi}u-w\partial_{z}u+fv+\frac{uv\tan\varphi}{a}+\nu\partial_{z}^{2}u\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+v^{n+1}=F-\frac{\Delta t}{a}\partial_{\varphi}\delta
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+w^{n\text{+1}}=G-\Delta t\partial_{z}\delta
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Theta^{n+1}=\Theta^{n}+\Delta t\left(-\frac{1}{a}v\partial_{\varphi}\Theta-w\partial_{z}\Theta-(\Theta-\Theta_{E})\tau^{-1}+\nu\partial_{z}^{2}\Theta\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We evaluate all derivatives, velocities, and potential temperatures on the
+ right hand sides of the equations explicitly at time 
+\begin_inset Formula $t^{n}$
+\end_inset
+
+, 
+\series bold
+except
+\series default
+ for the derivatives of our pressure/geopotential variation 
+\begin_inset Formula $\delta$
+\end_inset
+
+, which we evaluate at 
+\begin_inset Formula $t^{n+1}$
+\end_inset
+
+, i.e., implicitly.
+\end_layout
+
+\begin_layout Standard
+To make this clear, we write this once more:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+v^{n+1}=F^{n}-\frac{\Delta t}{a}\partial_{\varphi}\delta^{n+1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+w^{n\text{+1}}=G^{n}-\Delta t\partial_{z}\delta^{n+1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We determine 
+\begin_inset Formula $\delta^{n+1}$
+\end_inset
+
+ by solving the continuity equation at 
+\begin_inset Formula $t^{n+1}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+0=\frac{1}{a}\tan\varphi\cdot v^{n+1}-\frac{1}{a}\partial_{\varphi}v^{n+1}-\partial_{z}w^{n+1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+0=\frac{1}{a}\tan\varphi\cdot\left(F^{n}-\frac{\Delta t}{a}\partial_{\varphi}\delta^{n+1}\right)-\frac{1}{a}\partial_{\varphi}\left(F^{n}-\frac{\Delta t}{a}\partial_{\varphi}\delta^{n+1}\right)-\partial_{z}\left(G^{n}-\Delta t\partial_{z}\delta^{n+1}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+0=\frac{1}{a}F^{n}\tan\varphi-\frac{\Delta t}{a}\tan\varphi\partial_{\varphi}\delta^{n+1}-\frac{1}{a}\partial_{\varphi}F^{n}-\frac{\Delta t}{a^{2}}\partial_{\varphi}^{2}\delta^{n+1}-\partial_{z}G^{n}-\Delta t\partial_{z}^{2}\delta^{n+1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\Delta t}{a}\tan\varphi\cdot\partial_{\varphi}\delta^{n+1}+\frac{\Delta t}{a^{2}}\partial_{\varphi}^{2}\delta^{n+1}+\Delta t\partial_{z}^{2}\delta^{n+1}=\frac{1}{a}F^{n}\tan\varphi-\frac{1}{a}\partial_{\varphi}F^{n}-\partial_{z}G^{n}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+TODO: Discretize this equation for 
+\begin_inset Formula $\delta^{n+1}$
+\end_inset
+
+! (von Neumann at all boundaries, stable discretization? discretization
+ of 
+\begin_inset Formula $F^{n}$
+\end_inset
+
+, 
+\begin_inset Formula $G^{n}$
+\end_inset
+
+ derivatives?)
+\end_layout
+
+\begin_layout Standard
+Using these new values for 
+\begin_inset Formula $\delta$
+\end_inset
+
+, we can solve for 
+\begin_inset Formula $v^{n+1},w^{n+1}$
+\end_inset
+
+.
+ (TODO: Discretize 
+\begin_inset Formula $\partial_{\varphi}\delta^{n+1},\partial_{z}\delta^{n+1}$
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Standard
+Question: Should we use new values of 
+\begin_inset Formula $v,w$
+\end_inset
+
+ for computation of 
+\begin_inset Formula $u,\Theta$
+\end_inset
+
+?
 \end_layout
 
 \begin_layout Subsection
@@ -626,9 +1085,42 @@ Reformulation
 
 \begin_layout Standard
 \begin_inset Formula 
+\[
+v_{k+\frac{1}{2},j+\frac{1}{2}}^{n}=\frac{v_{k,j}^{n}+v_{k,j+1}^{n}}{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+w_{k+\frac{1}{2},j+\frac{1}{2}}^{n}=\frac{w_{k+1,j+\frac{1}{2}}^{n}+w_{k,j+\frac{1}{2}}^{n}}{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+w_{k+\frac{1}{2},j}^{n}=\frac{w_{k+\frac{1}{2},j+\frac{1}{2}}^{n}+w_{k+\frac{1}{2},j-\frac{1}{2}}^{n}}{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
 \begin{multline*}
-\frac{u_{k,j+\frac{1}{2}}^{n+1}-u_{k,j+\frac{1}{2}}^{n}}{\Delta t}=-\frac{1}{a}v_{k,j+\frac{1}{2}}^{n}\frac{u_{k,j+\frac{3}{2}}^{n}-u_{k,j-\frac{1}{2}}^{n}}{2\Delta\varphi}+f_{j+\frac{1}{2}}v_{k,j+\frac{1}{2}}^{n}+\frac{u_{k,j+\frac{1}{2}}^{n}v_{k,j+\frac{1}{2}}^{n}\tan\varphi_{j+\frac{1}{2}}}{a}\\
--w_{k,j+\frac{1}{2}}^{n}\frac{u_{k+1,j+\frac{1}{2}}^{n}-u_{k-1,j+\frac{1}{2}}^{n}}{2\Delta z}+\nu\frac{u_{k+1,j+\frac{1}{2}}^{n}-2u_{k,j+\frac{1}{2}}^{n}+u_{k-1,j+\frac{1}{2}}^{n}}{4\Delta z^{2}}
+\frac{u_{k+\frac{1}{2},j+\frac{1}{2}}^{n+1}-u_{k+\frac{1}{2},j+\frac{1}{2}}^{n}}{\Delta t}=-\frac{1}{a}v_{k+\frac{1}{2},j+\frac{1}{2}}^{n}\hat{\partial_{\varphi}}u_{k+\frac{1}{2},j+\frac{1}{2}}^{n}+f_{j+\frac{1}{2}}v_{k+\frac{1}{2},j+\frac{1}{2}}^{n}+\frac{u_{k+\frac{1}{2},j+\frac{1}{2}}^{n}v_{k+\frac{1}{2},j+\frac{1}{2}}^{n}\tan\varphi_{j+\frac{1}{2}}}{a}\\
+-w_{k+\frac{1}{2},j+\frac{1}{2}}^{n}\hat{\partial_{z}}u_{k+\frac{1}{2},j+\frac{1}{2}}^{n}+\nu\frac{u_{k+\frac{3}{2},j+\frac{1}{2}}^{n}-2u_{k+\frac{1}{2},j+\frac{1}{2}}^{n}+u_{k-\frac{1}{2},j+\frac{1}{2}}^{n}}{\Delta z^{2}}
 \end{multline*}
 
 \end_inset
@@ -636,8 +1128,8 @@ Reformulation
 
 \begin_inset Formula 
 \begin{multline*}
-\frac{v_{k,j+\frac{1}{2}}^{n+1}-v_{k,j+\frac{1}{2}}^{n}}{\Delta t}=-\frac{1}{a}v_{k,j+\frac{1}{2}}^{n}\frac{v_{k,j+\frac{3}{2}}^{n}-v_{k,j-\frac{1}{2}}^{n}}{2\Delta\varphi}-f_{j+\frac{1}{2}}u_{k,j+\frac{1}{2}}^{n}-\frac{\left(u_{k,j+\frac{1}{2}}^{n}\right)^{2}\tan\varphi_{j+\frac{1}{2}}}{a}\\
--w_{k,j+\frac{1}{2}}^{n}\frac{v_{k+1,j+\frac{3}{2}}^{n}-v_{k-1,j-\frac{1}{2}}^{n}}{2\Delta z}-\frac{1}{a}\frac{\Phi_{k,j+1}^{n}-\Phi_{k,j-1}^{n}}{2\Delta\varphi}+\nu\frac{v_{k+1,j+\frac{1}{2}}^{n}-2v_{k,j+\frac{1}{2}}^{n}+v_{k-1,j+\frac{1}{2}}^{n}}{4\Delta z^{2}}\\
+\frac{v_{k+\frac{1}{2},j}^{n+1}-v_{k+\frac{1}{2},j}^{n}}{\Delta t}=-\frac{1}{a}v_{k+\frac{1}{2},j}^{n}\hat{\partial_{\varphi}}v_{k+\frac{1}{2},j}^{n}-f_{j}u_{k+\frac{1}{2},j}^{n}-\frac{\left(u_{k+\frac{1}{2},j}^{n}\right)^{2}\tan\varphi_{j}}{a}\\
+-w_{k+\frac{1}{2},j}^{n}\hat{\partial_{z}}v_{k+\frac{1}{2},j}^{n}-\frac{1}{a}\frac{\Phi_{k,j+1}^{n}-\Phi_{k,j-1}^{n}}{2\Delta\varphi}+\nu\frac{v_{k+1,j+\frac{1}{2}}^{n}-2v_{k,j+\frac{1}{2}}^{n}+v_{k-1,j+\frac{1}{2}}^{n}}{4\Delta z^{2}}\\
 \end{multline*}
 
 \end_inset
@@ -666,6 +1158,37 @@ Reformulation
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Phi=gz+\delta^{(n+1)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $\hat{\partial_{\varphi}}$
+\end_inset
+
+, 
+\begin_inset Formula $\hat{\partial_{z}}$
+\end_inset
+
+ are upwind discretizations of the first partial derivative in 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ and 
+\begin_inset Formula $z$
+\end_inset
+
+ directions, respectively: t.b.c.
 \end_layout
 
 \begin_layout Standard
